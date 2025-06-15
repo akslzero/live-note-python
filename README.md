@@ -12,3 +12,5 @@ cd "folder projekmu"
 pip install flask flask-socketio
 py app.py
 ```
+5. Tes dengan buka website lalu ketik port localhost yang diberikan
+6. Untuk client lain, buka website lalu ketik ip address host dan port yang sama
