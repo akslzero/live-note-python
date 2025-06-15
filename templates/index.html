@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Notepad (Python)</title>
+</head>
+<body>
+    <h2>Live Notepad</h2>
+    <textarea id="note" rows="20" cols="80"></textarea>
+
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        const textarea = document.getElementById('note');
+
+        textarea.addEventListener('input', () => {
+            socket.emit('text-change', textarea.value);
+        });
+
+        socket.on('text-update', (data) => {
+            textarea.value = data;
+        });
+
+        socket.emit('request-text');
+    </script>
+</body>
+</html>
